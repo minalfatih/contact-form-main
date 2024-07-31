@@ -1,0 +1,175 @@
+:root {
+  --Green-lighter: hsl(148, 38%, 91%);
+  --Green-medium: hsl(169, 82%, 27%);
+  --White: hsl(0, 0%, 100%);
+  --Grey-medium: hsl(186, 15%, 59%);
+  --Grey-darker: hsl(187, 24%, 22%);
+}
+body {
+  background-color: var(--Green-lighter);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section {
+  background-color: var(--White);
+  width: 800px;
+  position: relative;
+}
+section h1,
+section form input label {
+  color: var(--Grey-darker);
+}
+section form .box {
+  margin-bottom: 20px;
+}
+.error-mesg,
+.error-valid {
+  color: hsl(0, 94%, 66%);
+  display: none;
+  margin: 0;
+}
+.box.valid .error-valid,
+.box.active .error-mesg {
+  display: block;
+}
+.box.active input,
+section form .box.active #message {
+  border-color: hsl(0, 94%, 66%);
+}
+section form div,
+section form input {
+  width: 100%;
+}
+section form label .require {
+  color: var(--Green-medium);
+  margin-left: 10px;
+}
+section form input,
+section .box .btn,
+section form .box #message {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid var(--Grey-medium);
+  outline: none;
+  caret-color: var(--Green-medium);
+  color: var(--Grey-darker);
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+section form input:hover,
+section .box .btn:hover,
+section form .box #message:hover {
+  border-color: var(--Green-medium);
+}
+section form input[type="submit"] {
+  background-color: var(--Green-medium);
+  color: var(--White);
+  padding: 15px;
+  border: none;
+}
+section form .box #message {
+  height: 100px;
+}
+section form .box #message.active {
+  border-color: var(--Green-medium);
+}
+section form input[type="submit"]:hover {
+  background-color: var(--Grey-darker);
+}
+section .box .btn.active {
+  background-color: var(--Green-lighter);
+  border: 1px solid var(--Green-medium);
+}
+section .box.checkbox {
+  margin: 2rem 0;
+}
+section .box .check div {
+  width: 21px;
+  height: 20px;
+  border: 1px solid var(--Grey-medium);
+  border-radius: 50%;
+  position: relative;
+}
+section .box .check div.active {
+  border: none;
+}
+section .box .check div input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+section .box .check div img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+section .box .check div img.active {
+  display: block;
+}
+section .box .check div input:checked {
+  opacity: 0;
+  position: relative;
+  z-index: 10;
+}
+section .box .check div input:checked + img.active {
+  display: block;
+}
+section .box .check-box {
+  width: fit-content;
+}
+section .box .checked {
+  cursor: pointer;
+}
+section .box .check-box div {
+  border-radius: 0;
+}
+.complete {
+  background-color: var(--Grey-darker);
+  color: var(--White);
+  opacity: 0;
+  transition: 0.3s linear;
+  padding: 0;
+  height: 0;
+}
+.complete.active {
+  opacity: 1;
+  height: 100%;
+  padding: 1.5rem;
+  transition: 0.3s linear;
+}
+.complete p {
+  color: var(--Green-lighter);
+}
+footer {
+  position: absolute;
+  bottom: -1rem;
+  padding: 1rem;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+}
+footer .attribution {
+  color: var(--Green-medium);
+  font-size: 11px;
+  text-align: center;
+}
+footer .attribution a {
+  color: var(--Grey-darker);
+}
+@media (max-width: 990px) {
+  section {
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .complete {
+    width: 90%;
+  }
+  .complete.active {
+    position: sticky;
+    top: 0;
+  }
+}
